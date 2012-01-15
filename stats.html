@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>memorable url shortener</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <h1>Stats</h1>
+    <table border="1">
+      <tr>
+        <th>Url</th>
+        <th>Memorable URL</th>
+        <th>Hits</th>
+      </tr>
+      <tr>
+        {% for url in urls %}
+        {% if url.url %}
+        <td><a href={{ url.url }}>{{ url.url}}</a></td>
+        <td><a href=http://{{host}}/{{ url.shortcode }}>http://{{host}}/{{url.shortcode}}</a></td>
+        <td>{{ url.hitcount }}</td>
+      </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+  </body>
+</html>

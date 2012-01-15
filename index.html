@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>memorable url shortener</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+    <script type="text/javascript">
+      <!-- Check that URL entered is valid -->
+      function check_url(sub)
+      {
+        var regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+        var valid_url = regex.test(document.getElementById("url").value);
+        if (!valid_url)
+        {
+          alert ("Invalid URL");
+          document.getElementById("url").focus();
+          return false;
+        }
+        return true;
+      }
+
+      <!-- Put focus on text input box -->
+      window.onload = function(){document.getElementById("url").focus();};
+    </script>
+
+  </head>
+  <body>
+    <h1>memorable url shortener</h1>
+    <p>Enter a URL to shorten:</p>
+    <form action="/shorten" method="post" onsubmit="return check_url(this);">
+      <input class="textbox" type="text" maxlength="100" size="50" id="url" name="url" value="" />
+      <input type="submit" value="shorten">
+    </form>
+  </body>
+</html>

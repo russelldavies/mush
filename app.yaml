@@ -1,0 +1,15 @@
+application: memorsh
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+
+- url: /css
+  static_dir: css
+
+- url: .*
+  script: main.py
+
+- url: /(.*)
+  script: main.py

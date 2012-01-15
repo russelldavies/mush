@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>memorable url shortener</title>
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+    <script type="text/javascript">
+      window.onload = function() { document.getElementById("shorturl").focus();document.getElementById("shorturl").select(); }
+    </script>
+  </head>
+  <body>
+    <p>Original URL: <a href="{{ url }}">{{ url }}<a></p>
+        <p>Shortened URL:<br/>
+        <form>
+          <input class="textbox" type="text" maxlength="100" size="50" id="shorturl" name="shorturl" value="http://{{ host }}/{{ shortcode }}" onclick="this.select()"/>
+        </form>
+        </p>
+
+        <p> QR Code:<br/>
+        <img src="http://chart.apis.google.com/chart?cht=qr&amp;chs=200x200&amp;chl=http%3A//{{ host }}/{{ shortcode }}&amp;chld=H|0" alt="QR Code" /></p>
+      </body>
+    </html>
